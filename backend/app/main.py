@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 import os
-
+from fastapi.middleware.cors import CORSMiddleware
 from .core.config import get_settings
 from .db.session import create_tables
 from .api import auth, health as health_router, ingest, timeline, score, intelligence, records, reports, care_circle
@@ -26,7 +26,18 @@ app = FastAPI(
     version="0.2.0",
     lifespan=lifespan,
 )
+origins = [
+    "https://synapse-a395.vercel.app",
+    "http://localhost:5173",
+]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins_list,
