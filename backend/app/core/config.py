@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     # Server
     backend_host: str = "0.0.0.0"
     backend_port: int = 8000
-    cors_origins: str = "http://localhost:5173,http://localhost:3000"
+    cors_origins: str = "http://localhost:5173,http://localhost:3000,http://10.15.26.249:5173,http://10.15.26.249:3000"
 
     # Frontend
     vite_api_url: str = "http://localhost:8000/api/v1"
