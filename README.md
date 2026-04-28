@@ -1,5 +1,8 @@
 # Synapse — Personal Health Intelligence Platform
 
+Deployment:-
+https://synapse-a395.vercel.app/
+
 > **Claude-powered health OS** that transforms raw wearable data into clinical narratives, causal patterns, and proactive whispers.
 
 Built for the Anthropic Hackathon. Targets judges, doctors, and investors who want to see what AI can do for personal health beyond chatbots.
