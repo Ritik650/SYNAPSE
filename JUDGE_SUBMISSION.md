@@ -8,12 +8,13 @@
 
 ---
 
-## ✅ **STATUS: LIVE AND READY**
+## ✅ **STATUS: LIVE AND NETWORK-ACCESSIBLE**
 
 **Network IP**: 10.15.26.249 ✓ Active  
-**Backend**: Running (http://10.15.26.249:8000) ✓ Responding  
-**Frontend**: Running (http://10.15.26.249:5173) ✓ Serving  
+**Frontend Port**: 5173 ✓ Open (Firewall configured)
+**Backend Port**: 8000 ✓ Open (Firewall configured)  
 **CORS Configuration**: Updated for network access ✓ Configured  
+**Demo Data**: Seeded with 3,750+ health metrics ✓ Ready  
 
 ---
 
@@ -48,6 +49,8 @@ Password: synapse-demo-2024
 ```
 
 **Pre-loaded Data**: 120 days of synthetic health metrics ready to explore
+
+**Network Setup**: Windows Firewall configured to allow ports 5173 (frontend) and 8000 (backend)
 
 ---
 
