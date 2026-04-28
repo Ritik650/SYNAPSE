@@ -1,18 +1,17 @@
 import axios from 'axios'
 
-// Dynamically construct backend URL based on current host
+// Always normalize backend URL and force /api/v1 prefix
 function getBackendURL(): string {
-  const env = import.meta.env.VITE_API_URL
-  if (env && env !== '/api/v1') {
-    return env
+  const env = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '')
+
+  // If VITE_API_URL is set (Vercel / production), use it and append /api/v1
+  if (env) {
+    return `${env}/api/v1`
   }
-  
-  // Get current host (e.g., localhost, 10.15.26.249, etc)
+
+  // Local fallback (dev)
   const host = window.location.hostname
-  const port = window.location.port ? ':8000' : ':8000'
-  
-  // Use the same host but with backend port
-  return `http://${host}${port}/api/v1`
+  return `http://${host}:8000/api/v1`
 }
 
 const BASE_URL = getBackendURL()
@@ -69,25 +68,37 @@ export const ingestApi = {
   manualMetric: (data: object) => api.post('/ingest/manual/metric', data),
   manualEvent: (data: object) => api.post('/ingest/manual/event', data),
   manualSymptom: (data: object) => api.post('/ingest/manual/symptom', data),
+
   uploadAppleHealth: (file: File) => {
     const fd = new FormData()
     fd.append('file', file)
-    return api.post('/ingest/apple-health', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
+    return api.post('/ingest/apple-health', fd, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
   },
+
   uploadMealPhoto: (file: File) => {
     const fd = new FormData()
     fd.append('file', file)
-    return api.post('/ingest/meal-photo', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
+    return api.post('/ingest/meal-photo', fd, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
   },
+
   uploadLabPdf: (file: File) => {
     const fd = new FormData()
     fd.append('file', file)
-    return api.post('/ingest/lab-pdf', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
+    return api.post('/ingest/lab-pdf', fd, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
   },
+
   uploadVoice: (file: File) => {
     const fd = new FormData()
     fd.append('file', file)
-    return api.post('/ingest/voice', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
+    return api.post('/ingest/voice', fd, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
   },
 }
 
@@ -127,6 +138,7 @@ export const careCircleApi = {
 export const reportsApi = {
   doctorPrep: (data: { visit_reason: string; visit_date: string; physician_name?: string }) =>
     api.post('/reports/doctor-prep', data),
+
   doctorPrepPdf: async (data: object): Promise<Blob> => {
     const r = await api.post('/reports/doctor-prep/pdf', data, { responseType: 'blob' })
     return r.data as Blob
@@ -139,30 +151,37 @@ export const recordsApi = {
     create: (data: object) => api.post('/records/symptoms', data),
     resolve: (id: string) => api.patch(`/records/symptoms/${id}/resolve`),
   },
+
   meals: {
     list: () => api.get('/records/meals'),
   },
+
   labs: {
     list: () => api.get('/records/labs'),
     get: (id: string) => api.get(`/records/labs/${id}`),
   },
+
   medications: {
     list: () => api.get('/records/medications'),
     create: (data: object) => api.post('/records/medications', data),
     logDose: (medId: string) => api.post(`/records/medications/${medId}/doses`),
   },
+
   voiceNotes: {
     list: () => api.get('/records/voice-notes'),
   },
+
   goals: {
     list: () => api.get('/records/goals'),
     create: (data: object) => api.post('/records/goals', data),
   },
+
   habits: {
     list: () => api.get('/records/habits'),
     create: (data: object) => api.post('/records/habits', data),
     complete: (id: string) => api.post(`/records/habits/${id}/complete`),
   },
+
   doctorVisits: {
     list: () => api.get('/records/doctor-visits'),
   },
