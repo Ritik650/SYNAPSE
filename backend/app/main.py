@@ -17,6 +17,21 @@ async def lifespan(app: FastAPI):
     os.makedirs("uploads/meals",  exist_ok=True)
     os.makedirs("uploads/labs",   exist_ok=True)
     os.makedirs("uploads/voice",  exist_ok=True)
+    # Auto-seed demo user on first boot
+    try:
+        from .db.session import SessionLocal
+        from .services.seed import seed_demo
+        from .models.user import User
+        from .services.synthetic import DEMO_EMAIL
+        db = SessionLocal()
+        try:
+            exists = db.query(User).filter(User.email == DEMO_EMAIL).first()
+            if not exists:
+                seed_demo(db)
+        finally:
+            db.close()
+    except Exception as e:
+        print(f"[seed] skipped: {e}")
     yield
 
 
