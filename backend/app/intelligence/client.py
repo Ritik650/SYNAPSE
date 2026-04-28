@@ -11,7 +11,7 @@ settings = get_settings()
 
 _client: anthropic.Anthropic | None = None
 PROMPTS_DIR = Path(__file__).parent / "prompts"
-MODEL = "claude-sonnet-4-5"
+MODEL = "claude-haiku-4-5-20251001"
 SAFETY_FOOTER = (
     "\n\n---\n*Synapse is informational only and is not a medical device. "
     "Always consult a licensed clinician for medical decisions.*"
