@@ -2,10 +2,5 @@
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
   "framework": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "env": {
-    "VITE_API_URL": "https://synapse-backend.onrender.com/api/v1"
-  }
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
