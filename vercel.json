@@ -1,0 +1,5 @@
+{
+  "env": {
+    "VITE_API_URL": "https://synapse-backend-production-a42b.up.railway.app/api/v1"
+  }
+}
