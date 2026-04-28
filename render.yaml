@@ -26,4 +26,11 @@ services:
       - key: JWT_EXPIRE_MINUTES
         value: "10080"
       - key: CORS_ORIGINS
-        sync: false
+        value: https://synapse-3-0uw2.onrender.com
+
+  - type: web
+    name: synapse-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    rootDir: frontend
