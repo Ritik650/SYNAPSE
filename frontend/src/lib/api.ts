@@ -1,6 +1,21 @@
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.VITE_API_URL ?? '/api/v1'
+// Dynamically construct backend URL based on current host
+function getBackendURL(): string {
+  const env = import.meta.env.VITE_API_URL
+  if (env && env !== '/api/v1') {
+    return env
+  }
+  
+  // Get current host (e.g., localhost, 10.15.26.249, etc)
+  const host = window.location.hostname
+  const port = window.location.port ? ':8000' : ':8000'
+  
+  // Use the same host but with backend port
+  return `http://${host}${port}/api/v1`
+}
+
+const BASE_URL = getBackendURL()
 
 export const api = axios.create({
   baseURL: BASE_URL,
