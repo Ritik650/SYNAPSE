@@ -5,9 +5,8 @@ primary_region = "sjc"
   dockerfile = "./Dockerfile"
 
 [env]
-  ANTHROPIC_API_KEY = "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"
   JWT_SECRET_KEY = "production-secret-key-change-this"
-  DATABASE_URL = "sqlite:///./synapse.db"
+  DATABASE_URL = "postgresql://user:pass@localhost/synapse"
   CORS_ORIGINS = "https://synapse-app.fly.dev,http://localhost:5173"
 
 [http_service]
