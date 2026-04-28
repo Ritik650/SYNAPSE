@@ -172,7 +172,6 @@ synapse/
 ├── docker-compose.yml
 ├── render.yaml           # Render backend deploy
 ├── vercel.json           # Vercel frontend deploy
-├── DEMO_SCRIPT.md        # 5-minute judge walkthrough
 └── PROMPTS.md            # All 10 Claude prompt templates
 ```
 
