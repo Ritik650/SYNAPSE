@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-feature-settings: "tnum" on, "kern" on;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg-base text-text-primary font-sans;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-subtle rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-secondary;
+  }
+}
+
+@layer components {
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      theme('colors.bg-elevated') 25%,
+      theme('colors.border-subtle') 50%,
+      theme('colors.bg-elevated') 75%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .card {
+    @apply bg-bg-surface border border-border-subtle rounded-lg;
+  }
+
+  .card-elevated {
+    @apply bg-bg-elevated border border-border-subtle rounded-lg;
+  }
+
+  .badge-info {
+    @apply bg-accent/10 text-accent-soft text-xs font-mono px-2 py-0.5 rounded;
+  }
+
+  .badge-warn {
+    @apply bg-warn/10 text-warn text-xs font-mono px-2 py-0.5 rounded;
+  }
+
+  .badge-danger {
+    @apply bg-danger/10 text-danger text-xs font-mono px-2 py-0.5 rounded;
+  }
+
+  .badge-success {
+    @apply bg-success/10 text-success text-xs font-mono px-2 py-0.5 rounded;
+  }
+
+  .narrative-text {
+    @apply font-serif text-text-primary leading-relaxed;
+  }
+
+  .data-number {
+    @apply font-mono tabular-nums;
+  }
+
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-soft text-white font-medium px-4 py-2 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-bg-elevated border border-border-subtle hover:border-accent/40 text-text-primary font-medium px-4 py-2 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply text-text-secondary hover:text-text-primary hover:bg-bg-elevated px-3 py-2 rounded-md transition-colors duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-danger/10 hover:bg-danger/20 border border-danger/30 text-danger font-medium px-4 py-2 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply bg-bg-elevated border border-border-subtle rounded-md px-3 py-2 text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-colors;
+  }
+}
+
+/* Safety footer styling */
+.safety-footer {
+  @apply text-text-secondary text-xs italic border-t border-border-subtle pt-3 mt-4;
+}
+
+/* Number count-up animation */
+.animate-count {
+  animation: count-up 600ms ease-out forwards;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
