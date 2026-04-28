@@ -212,6 +212,26 @@ vercel deploy
 # Set VITE_API_URL env var to your Render backend URL
 ```
 
+
+### APP Snapshots
+
+<img width="1919" height="870" alt="image" src="https://github.com/user-attachments/assets/33f5c9df-55ba-4219-80ed-74be907ecfb5" />
+
+<img width="1803" height="925" alt="image" src="https://github.com/user-attachments/assets/c7cd362b-f88f-4fca-b681-63a89bee5c13" />
+<img width="1919" height="865" alt="image" src="https://github.com/user-attachments/assets/13a01544-3ccc-4d83-b35b-52a92df56caf" />
+<img width="1843" height="868" alt="image" src="https://github.com/user-attachments/assets/bac0b6af-907f-44b0-aecc-267d86e35c4c" />
+
+
+
+<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/1f814955-68a0-4e3c-b6ae-ee07e54622ec" />
+
+<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/7993e0f8-b006-4869-92d3-8125c81b769e" />
+
+<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/7e34ef26-f568-4a28-8983-b493eff0df58" />
+
+<img width="1919" height="863" alt="image" src="https://github.com/user-attachments/assets/aa4c09f4-910d-4dfb-bbe1-1baea6d95ab8" />
+
+
 ---
 
 ## Safety & Ethics
