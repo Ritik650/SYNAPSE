@@ -2,6 +2,7 @@
 
 Deployment:-
 https://synapse-a395.vercel.app/
+https://dipuda007.dpdns.org
 
 > **Claude-powered health OS** that transforms raw wearable data into clinical narratives, causal patterns, and proactive whispers.
 
