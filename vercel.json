@@ -6,6 +6,6 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "env": {
-    "VITE_API_URL": "https://synapse-backend.onrender.com/api/v1"
+    "VITE_API_URL": "https://synapse-backend-production-a42b.up.railway.app/api/v1"
   }
 }
