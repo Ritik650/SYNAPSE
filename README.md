@@ -46,7 +46,7 @@ Built for the Anthropic Hackathon. Targets judges, doctors, and investors who wa
                                           └─────────────────┘
 ```
 
----
+----
 
 ## Tech Stack
 
